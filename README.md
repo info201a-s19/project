@@ -42,3 +42,5 @@ How many features (columns) are in the data?
 What questions (from above) can be answered using the data in this dataset?
 - In 2018, what are the top rated Airbnbs in Seattle?
 - From 2018 to 2019, what are the most popular restaurants in LA?
+- What is the busies hours in the Sea-Tac airport?
+- What is the relationship between the price and rating in the Yelp and Airbnb dataset.
