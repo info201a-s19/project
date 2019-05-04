@@ -20,8 +20,9 @@ What data-driven questions do you hope to answer about this domain (share at lea
 - In 2018, what are the top rated Airbnbs in Seattle?  
 We can find out the answer by sorting the Airbnb rating in decreasing order and extra the top ratings from the dataset.
 - From 2018 to 2019, what are the most popular restaurants in LA?  
-We need to further define the meaning of popular. One measurement of popularity is the number of reviews and the restaurants can be ranked by number of reviewes
-- What time of the day are the flights most likely to be delayed in Sea-Tac airport?
+We need to further define the meaning of popular. One measurement of popularity is the number of reviews and the restaurants can be ranked by number of reviewes.
+- What time of the day are the flights most likely to be delayed in Sea-Tac airport?  
+This question can be answered by aggregating the number of arrived flights and departed flights by hour. The processed data can be plotted on a histogram so we can find out the pattern.
 
 ## Finding Data
 Where did you download the data (e.g., a web URL)?
