@@ -5,7 +5,7 @@ Use this `REAMDE.md` file to describe your final project (as detailed on Canvas)
 
 Field of interests -  tourism
 
-Why are you interested in this field/domain?
+Why are you interested in this field/domain?  
 We are interested in the field of tourism because as college students, besides studying, we also like to explore new things to do and new places to travel in order to balance out our life stress. Moreover, Seattle is an exciting city. Delicious food and beautiful seascape have attracted tourists from all around the world. Analyzing the data about tourism field will help us to best plan our vacation and make the trip smoothly  
 
 What other examples of data driven project have you found related to this domain (share at least 3)?
