@@ -10,7 +10,7 @@ We are interested in the field of tourism because as college students, besides s
 
 What other examples of data driven project have you found related to this domain (share at least 3)?
 - [Data-Driven Planning for Sustainable Tourism in Tuscany](https://github.com/dssg/tuscany-tourism-public)  
-This project analyse the data (primarily provided by Vodafone) to provide insights and evidence of various tourist mobility patterns to the TPT in order to improve segmentation of the tourism markets.
+This project analyses data primarily provided by Vodafone to provide insights and evidence of various tourist mobility patterns to the TPT in order to improve segmentation of the tourism markets.
 - [Airbnb Data Visualisation](https://observablehq.com/@chodimella/final-project-airbnb-data-visualisation)  
 This project use Airbnb's data to design visualisation to help users explore popular neighbourhoods based on their preference if they were to book a trip and travel around or transit through Vancouver and its neighbourhoods.
 - [European Union Tourism Trends](https://www.e-unwto.org/doi/pdf/10.18111/9789284419470)  
