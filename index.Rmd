@@ -1,0 +1,23 @@
+---
+title: "Seattle Airbnbs Project"
+author: "Karl Yang, Lin He, Peihuan Han,  John Wang"
+date: "5/20/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+## Summary
+
+## Table
+
+## Chart 1
+
+## Chart 2
+
+## Chart 3
+
