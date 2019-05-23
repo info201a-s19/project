@@ -3,31 +3,25 @@ library("dplyr")
 library("ggplot2")
 library("leaflet")
 
-df <- read.csv("../data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
-
+# Plot all the listing on a map and put some useful information 
+# in the popup window 
 chart1 <- function(df) {
-  # Select the columns of interest
-  df <- df %>% 
-    select(latitude, longitude, name, review_scores_rating, listing_url)
-  
   map <- leaflet(df) %>%
     addProviderTiles("CartoDB.Positron") %>%
-    setView(lng = -122.3321, lat = 47.6062, zoom = 10) %>% 
+    setView(lng = -122.3321, lat = 47.6062, zoom = 11) %>%
     addCircles(
-      # null data ??? Bug
-      lat = ~latitude, 
+      lat = ~latitude,
       lng = ~ longitude,
       popup = ~ paste(
+        paste0("<b><img src=", thumbnail_url, ">"),
         paste0("Name: ", name),
         paste0("Rating: ", review_scores_rating),
-        paste0("[Open in Airbnb](", listing_url, ")"),
-        sep="<br/>"
+        paste0("<b><a href=", listing_url, ">Open in Airbnb</a></b>"),
+        sep = "<br/>"
         ),
-      radius = 20,
+      radius = 30,
       fillOpacity = 0.5,
       stroke = FALSE
     )
-  map
+  return(map)
 }
-
-map <- chart1(df)

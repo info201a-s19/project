@@ -10,6 +10,8 @@ output: html_document
 library("knitr")
 library("kableExtra")
 source("scripts/chart1.R")
+source("scripts/chart2.R")
+source("scripts/chart3.R")
 
 # Load dataset
 airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
@@ -25,12 +27,35 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Table
 
-## Chart 1
+## All Airbnb Listings
+Want to see all the listing on a map? Not problem! You can find all the 
+listings below. You can get a good sense of the geographical 
+distributon of the Airbnb listings in Seattle. A lot of listings are 
+clustered in downtown seattle. You may find a lot of choice over there. 
+You can click on the listing if you want to find more information. 
+The popup window will provides you a thrumbnail image of the listing along 
+with other useful information. If you want to find out more about the listing, 
+you can click on the link which will bring you to Airbnb!
+
 ```{r, echo=FALSE, message=FALSE}
 chart1(airbnb)
 ```
 
-## Chart 2
+## Price
+One bedroom house could not satisify you? Or you are coming with a large group. 
+No problem! We will give you the pricing distribution divided by the number of 
+bedrooms that allows you to make a better choice based on you budget. 
+You are free to pick the number of bedrooms that best fits your need. 
 
-## Chart 3
+```{r, echo=FALSE, message=FALSE}
+chart2(airbnb)
+```
 
+## Best Neighbourhoods
+What? Budget is not a concern for you? You want the best of best experience. 
+We have selcted five top-rating neigbourhood for you. You can activily look for 
+places to stays in those communities. 
+
+```{r, echo=FALSE, message=FALSE}
+chart3(airbnb)
+```
