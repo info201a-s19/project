@@ -3,6 +3,7 @@ title: "Seattle Airbnbs Project"
 author: "Karl Yang, Lin He, Peihuan Han, John Wang"
 date: "5/20/2019"
 output: html_document
+css: styles.css
 ---
 
 ```{r echo = FALSE, message = FALSE}
@@ -10,13 +11,17 @@ output: html_document
 library("knitr")
 library("kableExtra")
 source("scripts/chart1.R")
+source("scripts/tables.R")
 
 # Load dataset
-airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
+airbnb_listing <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
+airbnb_reviews <- read.csv("data/seattle-airbnb/reviews.csv", stringsAsFactors = FALSE)
 ```
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
 ```
 
 ## Introduction
@@ -24,10 +29,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Summary
 
 ## Table
+```{r}
+top_airbnb_table(airbnb_listing)
+```
 
 ## Chart 1
-```{r, echo=FALSE, message=FALSE}
-chart1(airbnb)
+```{r}
+chart1(airbnb_listing)
 ```
 
 ## Chart 2

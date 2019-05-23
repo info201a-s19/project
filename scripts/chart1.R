@@ -3,7 +3,7 @@ library("dplyr")
 library("ggplot2")
 library("leaflet")
 
-df <- read.csv("../data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
+df <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 
 chart1 <- function(df) {
   # Select the columns of interest
