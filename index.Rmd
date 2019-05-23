@@ -3,6 +3,7 @@ title: "Seattle Airbnbs Project"
 author: "Karl Yang, Lin He, Peihuan Han, John Wang"
 date: "5/20/2019"
 output: html_document
+css: styles.css
 ---
 
 ```{r echo = FALSE, message = FALSE}
@@ -14,11 +15,13 @@ source("scripts/chart2.R")
 source("scripts/chart3.R")
 
 # Load dataset
-airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
+airbnb_listing <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 ```
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
 ```
 
 ## Introduction
@@ -26,6 +29,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Summary
 
 ## Table
+```{r}
+top_airbnb_table(airbnb_listing)
+```
 
 ## All Airbnb Listings
 Want to see all the listing on a map? Not problem! You can find all the 

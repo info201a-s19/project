@@ -5,6 +5,7 @@ library("leaflet")
 
 # Plot all the listing on a map and put some useful information 
 # in the popup window 
+
 chart1 <- function(df) {
   map <- leaflet(df) %>%
     addProviderTiles("CartoDB.Positron") %>%
