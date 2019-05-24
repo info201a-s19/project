@@ -47,7 +47,7 @@ So with the highest price and the most popularity, does the entire home/apartmen
 
 
 ## All Airbnb Listings
-Want to see all the listing on a map? Not problem! You can find all the 
+Want to see all the listings on a map? Not problem! You can find all the 
 listings below. You can get a good sense of the geographical 
 distributon of the Airbnb listings in Seattle. A lot of listings are 
 clustered in downtown seattle. You may find a lot of choice over there. 
@@ -56,7 +56,7 @@ The popup window will provides you a thrumbnail image of the listing along
 with other useful information. If you want to find out more about the listing, 
 you can click on the link which will bring you to Airbnb!
 
-```{r, echo=FALSE, message=FALSE}
+```{r}
 chart1(airbnb)
 ```
 
@@ -66,7 +66,7 @@ No problem! We will give you the pricing distribution divided by the number of
 bedrooms that allows you to make a better choice based on you budget. 
 You are free to pick the number of bedrooms that best fits your need. 
 
-```{r, echo=FALSE, message=FALSE}
+```{r}
 chart2(airbnb)
 ```
 
@@ -75,6 +75,6 @@ What? Budget is not a concern for you? You want the best of best experience.
 We have selcted five top-rating neigbourhood for you. You can activily look for 
 places to stays in those communities. 
 
-```{r, echo=FALSE, message=FALSE}
+```{r}
 chart3(airbnb)
 ```
