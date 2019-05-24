@@ -1,3 +1,5 @@
+## Chart 3
+
 # Load Libraries
 library("dplyr")
 library("ggplot2")
@@ -16,11 +18,19 @@ chart3 <- function(df) {
   neighbourhood_chart <- ggplot(df,
     mapping = aes(
       x = reorder(neighbourhood, average_rating),
-      y = average_rating)) +
+      y = average_rating
+    )
+  ) +
     geom_col(fill = "#0B6AB0") +
     coord_flip() +
-    geom_text(aes(label = average_rating), hjust = 1.4, color = "white", size = 5) +
-    labs(title = "Best Rating Neighbourhoods", x = "Neighbourhood", y = "Average Rating")
+    geom_text(aes(label = average_rating),
+      hjust = 1.4, color = "white",
+      size = 5
+    ) +
+    labs(
+      title = "Best Rating Neighbourhoods", x = "Neighbourhood",
+      y = "Average Rating"
+    )
 
   return(neighbourhood_chart)
 }

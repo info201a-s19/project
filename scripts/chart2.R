@@ -1,3 +1,5 @@
+## Chart 2
+
 # Load Libraries
 library("dplyr")
 library("ggplot2")
@@ -8,12 +10,16 @@ chart2 <- function(df) {
   df <- df %>%
     mutate(Price = as.numeric(gsub("[\\$,]", "", price)))
 
-  price_by_bedrooms <- ggplot(df,  aes(x = bedrooms, y=Price)) +
-    geom_violin(trim = FALSE,
-                aes(fill = factor(bedrooms)),
-                draw_quantiles = c(0.5)) +
-    scale_fill_brewer(palette="Blues") +
-    labs(title = "Price by Number of Bedromms", 
-         x = "Number of Bedrooms", y = "Price per Night")
+  price_by_bedrooms <- ggplot(df, aes(x = bedrooms, y = Price)) +
+    geom_violin(
+      trim = FALSE,
+      aes(fill = factor(bedrooms)),
+      draw_quantiles = c(0.5)
+    ) +
+    scale_fill_brewer(palette = "Blues") +
+    labs(
+      title = "Price by Number of Bedromms",
+      x = "Number of Bedrooms", y = "Price per Night"
+    )
   return(price_by_bedrooms)
 }
