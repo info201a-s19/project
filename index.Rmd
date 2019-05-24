@@ -13,9 +13,10 @@ library("kableExtra")
 source("scripts/chart1.R")
 source("scripts/chart2.R")
 source("scripts/chart3.R")
+source("scripts/tables.R")
 
 # Load dataset
-airbnb_listing <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
+airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 ```
 
 ```{r setup, include=FALSE}
@@ -30,7 +31,7 @@ knitr::opts_chunk$set(warning = FALSE)
 
 ## Table
 ```{r}
-top_airbnb_table(airbnb_listing)
+top_airbnb_table(airbnb)
 ```
 
 ## All Airbnb Listings
