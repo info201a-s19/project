@@ -29,10 +29,16 @@ knitr::opts_chunk$set(warning = FALSE)
 
 ## Summary
 
-## Table
+## Summary Table by Room Types
+Do you know which room type in Airbnb is most popular one in Seattle area? Which room type is the most expensive one? And which room type gives the best experience? To answer these question, we will create a summary table by grouping the airbnb rooms according to their room type so we can compare the difference between each room type easily!
 ```{r}
-top_airbnb_table(airbnb)
+summary_by_type_table(airbnb)
 ```
+
+From the table above, we can see that the most popular room type of Airbnb in Seattle is definitely the entire home or the entire apartment, with the most number of rooms available and the largest number of reviews. Besides, it also has the highest rate of instant bookable rooms. However, it's also the most expensive type of room, with both the highest mean price and highest cleaning fee. We can see its mean price is twice as much as Private rooms' and three times as much as Share rooms.
+
+So with the highest price and the most popularity, does the entire home/apartment also gives the best living experience? The data above tells us it's not really true. In fact, from the table above we can see that private rooms' mean rating is slightly higher than the entire home/apartment. Therefore, if you plan to travel Seattle with 1 or 2 persons, maybe private room is a good choice with good experience and cheaper prices; if you plan to travel with your entire family or lots of friends together, renting the entire home/apartment may be a good choice.
+
 
 ## All Airbnb Listings
 Want to see all the listing on a map? Not problem! You can find all the 
