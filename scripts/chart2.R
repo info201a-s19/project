@@ -14,6 +14,6 @@ chart2 <- function(df) {
                 draw_quantiles = c(0.5)) +
     scale_fill_brewer(palette="Blues") +
     labs(title = "Price by Number of Bedromms", 
-         x = "Number of bedrooms", y = "Price")
+         x = "Number of Bedrooms", y = "Price per Night")
   return(price_by_bedrooms)
 }
