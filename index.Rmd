@@ -59,6 +59,8 @@ you can click on the link which will bring you to Airbnb!
 chart1(airbnb)
 ```
 
+According to the map, most of airbnbs are located in the north of Seattle, especially around capital hill, central distric and university district. Comparing to north of Seattle, there are fewer airbnbs in the south of Seattle.
+
 ## Price
 One bedroom house could not satisify you? Or you are coming with a large group. 
 No problem! We will give you the pricing distribution divided by the number of 
@@ -69,6 +71,8 @@ You are free to pick the number of bedrooms that best fits your need.
 chart2(airbnb)
 ```
 
+The airbnbs with 6 bedrooms tend to be the most expensive and have widest range of price. The airbnbs with 0 bedroom tend to be the cheapest and have the narrowest range of price.
+
 ## Best Neighbourhoods
 What? Budget is not a concern for you? You want the best of best experience. 
 We have selcted five top-rating neigbourhood for you. You can activily look for 
@@ -77,3 +81,5 @@ places to stays in those communities.
 ```{r}
 chart3(airbnb)
 ```
+
+According to the chart, the Arbor Heights neightbourhood has the highest average rating of 98. The Harrison/Denny-Blaine neightbourhood has the lowest average rating of 97.2.
