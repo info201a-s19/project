@@ -10,11 +10,12 @@ css: styles.css
 # Load libraries
 library("knitr")
 library("kableExtra")
+# Source scripts
 source("scripts/chart1.R")
 source("scripts/chart2.R")
 source("scripts/chart3.R")
 source("scripts/tables.R")
-source("scripts/introduction.R")
+source("scripts/summary.R")
 # Load dataset
 airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 ```
@@ -30,11 +31,12 @@ Seattle is an exciting city. Delicious food and beautiful seascapes have attract
 
 The data was downloaded from [Seattle Airbnb Open Data](https://www.kaggle.com/airbnb/seattle#listings.csv). Seattle Airbnb Open Data was collected as part of the Airbnb Inside initiative. It described the listing activity of homestays in Seattle, WA.
 
-## Summary
+## Summary Information
+Based on the data collected by Airbnb in 2016, the average price of Airbnb accommodations in seattle is `r summary_info(airbnb)$avg_price` US dollars and the average cleanning fee charged is `r summary_info(airbnb)$avg_cleaning_fee` US dollars. The average minimum staying nights for living in Airbnb accomodations are `r summary_info(airbnb)$avg_min_night` nights, and the maximum staying nights for living in Airbnb accomodations are `r summary_info(airbnb)$avg_max_night` nights. In 2016, among all the Airbnb accommodations in seattle, _`r summary_info(airbnb)$most_reviewed_house`_ is the most popular house with most review `r summary_info(airbnb)$most_review` per month among others.
 
 ## Summary Table by Room Types
 Do you know which room type in Airbnb is most popular one in Seattle area? Which room type is the most expensive one? And which room type gives the best experience? To answer these question, we will create a summary table by grouping the airbnb rooms according to their room type so we can compare the difference between each room type easily!
-```{r}
+```{r, echo=FALSE}
 summary_by_type_table(airbnb)
 ```
 
@@ -44,7 +46,7 @@ So with the highest price and the most popularity, does the entire home/apartmen
 
 
 ## All Airbnb Listings
-Want to see all the listing on a map? Not problem! You can find all the 
+Want to see all the listings on a map? Not problem! You can find all the 
 listings below. You can get a good sense of the geographical 
 distributon of the Airbnb listings in Seattle. A lot of listings are 
 clustered in downtown seattle. You may find a lot of choice over there. 
@@ -53,9 +55,11 @@ The popup window will provides you a thrumbnail image of the listing along
 with other useful information. If you want to find out more about the listing, 
 you can click on the link which will bring you to Airbnb!
 
-```{r, echo=FALSE, message=FALSE}
+```{r}
 chart1(airbnb)
 ```
+
+According to the map, most of airbnbs are located in the north of Seattle, especially around capital hill, central distric and university district. Comparing to north of Seattle, there are fewer airbnbs in the south of Seattle.
 
 ## Price
 One bedroom house could not satisify you? Or you are coming with a large group. 
@@ -63,15 +67,19 @@ No problem! We will give you the pricing distribution divided by the number of
 bedrooms that allows you to make a better choice based on you budget. 
 You are free to pick the number of bedrooms that best fits your need. 
 
-```{r, echo=FALSE, message=FALSE}
+```{r}
 chart2(airbnb)
 ```
+
+The airbnbs with 6 bedrooms tend to be the most expensive and have widest range of price. The airbnbs with 0 bedroom tend to be the cheapest and have the narrowest range of price.
 
 ## Best Neighbourhoods
 What? Budget is not a concern for you? You want the best of best experience. 
 We have selcted five top-rating neigbourhood for you. You can activily look for 
 places to stays in those communities. 
 
-```{r, echo=FALSE, message=FALSE}
+```{r}
 chart3(airbnb)
 ```
+
+According to the chart, the Arbor Heights neightbourhood has the highest average rating of 98. The Harrison/Denny-Blaine neightbourhood has the lowest average rating of 97.2.
