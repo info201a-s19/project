@@ -2,7 +2,8 @@
 library("shiny")
 library("dplyr")
 library("ggplot2")
-
+install.packages("shinythemes")
+library(shinythemes)
 # Load data frame
 airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 
@@ -296,6 +297,7 @@ summary <- tabPanel(
 )
 # Pass the user interface page to a multi-page layout
 ui <- navbarPage(
+  theme = shinytheme("slate"),
   includeCSS("styles.css"),
   id = "Seattle Airbnbs Project",
   # Introduction
