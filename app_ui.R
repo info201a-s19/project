@@ -5,7 +5,7 @@ library("shiny")
 airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 
 # Define the user interface content
-ui_page <- tabPanel(
+interactive_page_two <- tabPanel(
   "Useful Correlations Between the Offers and the Gains for Airbnb Hosts",
   titlePanel("Useful Correlations Between the Offers and the Gains for Airbnb Hosts"),
   
@@ -54,5 +54,15 @@ ui_page <- tabPanel(
 # Pass the user interface page to a multi-page layout
 ui <- navbarPage(
   "Seattle Airbnbs Project",
-  ui_page
+  # Introduction
+  
+  # First interactive page
+  
+  # Second interactive page
+  interactive_page_two
+  
+  # Third interactive page
+  
+  # Conclusion
+  
 )

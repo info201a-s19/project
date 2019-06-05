@@ -9,6 +9,11 @@ df <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 # Create a server function that takes in user's input and return output
 server <- function(input, output) {
   # Return output
+  # Output for introduction
+  
+  # Output for first interactive page
+  
+  # Output for second interactive page
   output$useful_correlations <- renderPlot({
     # Store the title
     title <- paste(
@@ -45,4 +50,8 @@ server <- function(input, output) {
     # return the scatter plot
     scatter_plot
   })
+  
+  # Output for third interactive page
+  
+  # Output for conclusion
 }
