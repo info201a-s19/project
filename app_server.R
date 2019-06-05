@@ -1,0 +1,48 @@
+# Load necessary libraries
+library("ggplot2")
+library("shiny")
+library("dplyr")
+
+# Load data frame
+df <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
+
+# Create a server function that takes in user's input and return output
+server <- function(input, output) {
+  # Return output
+  output$useful_correlations <- renderPlot({
+    # Store the title
+    title <- paste(
+      "Correlation Between", input$x_var, "and", input$y_var
+    )
+    
+    # Reorganize the data
+    data_needed <- df %>% 
+      select(accommodates, bathrooms, bedrooms, beds, price,
+             number_of_reviews, review_scores_rating, reviews_per_month)
+    
+    colnames(data_needed) <- c(
+      "Number_of_Accommodates", "Number_of_Bathrooms",
+      "Number_of_Bedrooms", "Number_of_Beds",
+      "Price", "Number_of_Reviews", "Rating",
+      "Reviews_per_Month"
+    )
+    
+    data_needed <- data_needed %>% 
+      mutate(Price = as.numeric(gsub("[\\$,]", "", Price)))
+    
+    # Create a scatter plot that reveals the correlation
+    scatter_plot <- ggplot(data = data_needed) +
+      geom_point(
+        mapping = aes_string(x = input$x_var, y = input$y_var),
+        size = input$size
+      ) +
+      labs(
+        x = input$x_var,
+        y = input$y_var,
+        title = title
+      )
+    
+    # return the scatter plot
+    scatter_plot
+  })
+}
