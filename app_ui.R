@@ -2,6 +2,7 @@
 library("shiny")
 library("dplyr")
 library("ggplot2")
+library("plotly")
 
 # Load data frame
 airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
@@ -12,8 +13,8 @@ introduction <- tabPanel(
   mainPanel(
     tags$h1("Choose your best Airbnb fit in Seattle"),
     tags$h4("Karl Yang, Lin He, Peihuan Han, John Wang"),
-    tags$h4("6/4/2019"),
-    tags$img("", src = "seattletravel.jpg", 
+    tags$h5("6/4/2019"),
+    tags$img("", src = "seattletravel.jpg",
              width = 600, height = 360),
     tags$p(strong("Seattle"), "is an exciting city.",
            strong("Delicious food"), "and", strong("beautiful seascapes"),
@@ -24,7 +25,7 @@ introduction <- tabPanel(
            and feel at home at the same time."),
     tags$img("", src = "airbnb.png", width = 600, height = 360),
     tags$p("Based on this, people coming to Seattle would like to choose
-           high-cost performance Airbnb house instead of the traditional
+           high cost-performance Airbnb house instead of the traditional
            hotel. In this project, we will sort and analyze data collected
            by Airbnb in Seattle to help users explore popular neighborhoods
            based on their preference and find their best fit accommodations
@@ -153,11 +154,11 @@ interactive_page_two <- tabPanel(
         min = 1,
         max = 10,
         value = 3
-      ) 
+      )
     ),
     # Create the plot
     mainPanel(
-        plotOutput("useful_correlations")
+        plotlyOutput("useful_correlations")
     )
   )
 )
@@ -193,6 +194,11 @@ summary_cards <- div(
 interactive_page_three <- tabPanel(
   "Neighbourhood Info",
   titlePanel("Neighbourhood Info"),
+  p("You can find out the summary information of the neighbourhood
+        you are planning to stay. The pricing, rating, and avaibility
+        are the infomation that most visitors care about. You can know
+        more the communities in Seattle as you navigate different
+        neigbourhoods."),
   sidebarLayout(
     sidebarPanel(
       selectInput(
@@ -205,12 +211,7 @@ interactive_page_three <- tabPanel(
     mainPanel(
       h3("Key Index"),
       summary_cards,
-      plotOutput("barchart"),
-      p("You can find out the summary information of the neighbourhood
-        you are planning to stay. The pricing, rating, and avaibility
-        are the infomation that most visitors care about. You can know
-        more the communities in Seattle as you navigate different
-        neigbourhoods.")
+      plotOutput("barchart")
     )
   )
 )
@@ -229,29 +230,29 @@ summary <- tabPanel(
       since one has many delicious food and one located near University so
       parents or other visitors who wants to visit the University will
       want to live there."),
-    tags$img("", src = "distribution.png", 
+    tags$img("", src = "distribution.png",
              widisdth = 600, height = 360),
     p("In the broader view, the host could buy the house near attractions of
       the city and the visitors can also choose thoes palce to live while
       traveling. Therefore, the land will be more expensive for thoes area"),
-    
+  
     h3("2. Price change Factors"),
     p("The second plot shows how price changes according to the change in
       numbers of Bedroom and numbers of people live in. According to the graph,
       price increases most along with the increasing number of Bedrooms."),
-    tags$img("", src = "bedroom.png", 
-             widisdth = 600, height = 360),    
+    tags$img("", src = "bedroom.png",
+             widisdth = 600, height = 360),   
     p("The price will not vary much when the numbers of lodger is less than
       4 people or the numbers of bathroom is less than 2. There is a large
       price shift when more than 8 people can live in and more than 4 bedrooms
       , 3 bathrooms in the house."),
-    tags$img("", src = "accommodate.png", 
+    tags$img("", src = "accommodate.png",
              widisdth = 600, height = 360),
-    
+  
     p("To conclude, if the lodgers are less than 2 people, living in hotel might
       be a better choice, if they have more than 3 people, Airbnb will provide
       a high cost performance."),
-    
+  
     h3("3. Room type"),
     p("Refer to our third plot, there are 2818 listing Airbnb houses in Seattle
       in 2016. The plot shows the number of listing and average Price for

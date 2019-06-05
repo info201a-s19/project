@@ -16,7 +16,11 @@ h4 {
 }
 
 p {
-	margin: 20px;
+	margin: 20px 0px 20px 0px;
+}
+
+nav {
+	background-color: #4286f4;
 }
 
 .card {
@@ -27,6 +31,7 @@ p {
 
 .grey-font {
   color: grey;
+	margin: 0px;
 }
 
 #card-container {

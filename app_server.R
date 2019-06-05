@@ -2,9 +2,7 @@
 library("ggplot2")
 library("shiny")
 library("dplyr")
-
-# Load data frame
-df <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
+library("plotly")
 
 # Create a server function that takes in user's input and return output
 server <- function(input, output) {
@@ -34,7 +32,7 @@ server <- function(input, output) {
         )
       return(map)
     }
-  
+
     data <- airbnb %>%
       filter(grepl(input$name, name)) %>%
       filter(input$instant_book == (instant_bookable == "t"))
@@ -47,27 +45,27 @@ server <- function(input, output) {
     make_map(data)
   })
   # Output for second interactive page
-  output$useful_correlations <- renderPlot({
+  output$useful_correlations <- renderPlotly({
     # Store the title
     title <- paste(
       "Correlation Between", input$x_var, "and", input$y_var
     )
-  
+
     # Reorganize the data
     data_needed <- airbnb %>%
       select(accommodates, bathrooms, bedrooms, beds, price,
              number_of_reviews, review_scores_rating, reviews_per_month)
-  
+
     colnames(data_needed) <- c(
       "Number_of_Accommodates", "Number_of_Bathrooms",
       "Number_of_Bedrooms", "Number_of_Beds",
       "Price", "Number_of_Reviews", "Rating",
       "Reviews_per_Month"
     )
-  
+
     data_needed <- data_needed %>%
       mutate(Price = as.numeric(gsub("[\\$,]", "", Price)))
-  
+
     # Create a scatter plot that reveals the correlation
     scatter_plot <- ggplot(data = data_needed) +
       geom_point(
@@ -79,7 +77,7 @@ server <- function(input, output) {
         y = input$y_var,
         title = title
       )
-  
+
     # return the scatter plot
     scatter_plot
   })
@@ -93,6 +91,7 @@ server <- function(input, output) {
     data <- airbnb %>%
       group_by(room_type) %>%
       summarise(n = n())
+    # Bar chart doesn't have hover over function
     chart <- ggplot(data, aes(x = reorder(room_type, n),
                               y = n, fill = room_type)) +
       geom_col() +
