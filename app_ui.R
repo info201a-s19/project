@@ -60,16 +60,18 @@ interactive_page_one <- tabPanel(
 
 # Second page
 interactive_page_two <- tabPanel(
-  "Useful Correlations Between the Offers and the Gains for Airbnb Hosts",
-  titlePanel("Useful Correlations Between the Offers and the Gains for Airbnb Hosts"),
+  "Useful Correlations Between the Offers and the Gains",
+  titlePanel("Useful Correlations Between the Offers and the Gains"),
   
   # Description
-  p("The purpose of this page is to give Airbnb hosts some general ideas about
-    the relationship between what they offer to the customers and what they can
-    receive from the customers. For example, if the Airbnb can accommodate
-    4 people and the Airbnb host wonders how much he/she should set the price
-    of the Airbnb to be, the Airbnb host can refer to the 
-    Number_of_Accommodates VS Price plot"),
+  p("The purpose of this page is to give people some general ideas about
+    the relationship between what they offer and what they can
+    receive from the Airbnbs. For example, if there are 4 people looking 
+    for an Airbnb and the customers wonder how much they should be charged
+    , they can refer to the Number_of_Accommodate VS Price plot. 
+    If the customers want an Airbnb with two bedrooms, they can refer to 
+    the Number_of_Bedrooms VS Rating plot in order to get a sense of whether 
+    there are plenty of good rated Airbnbs for them to choose from"),
   
   # This content uses a sidebar layout
   sidebarLayout(
