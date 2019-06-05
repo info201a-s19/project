@@ -3,9 +3,7 @@ library(dplyr)
 library(ggplot2)
 library(leaflet)
 library(stringr)
-
-# Load Data
-airbnb <- read.csv("../data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
+source("app.R")
 
 # Plot all the listing on a map and put some useful information 
 # in the popup window 
