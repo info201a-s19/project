@@ -27,13 +27,25 @@ room_types <- list("room_types" = c("All", room_types))
 interactive_page_one <- tabPanel(
   title = "Airbnb Map in Seattle",
   
+  titlePanel("Airbnb Map in Seattle"),
+  
+  p("In this page you can get a good sense of the geographical distributon 
+    of the Airbnb listings in Seattle. A lot of listings are clustered 
+    in downtown seattle. You may find a lot of choice over there. 
+    You can click on the listing if you want to find more information. 
+    The popup window will provides you a thrumbnail image of the listing along 
+    with other useful information. If you want to find out more about the 
+    listing, you can click on the link which will bring you to Airbnb!   
+    You could also search for a specfic room by its name, filter by its  
+    property type or room type, and weather its instant bookable."),
+  
   sidebarPanel(
     titlePanel("Filter"),
     textInput(
       "name",
-      label = "Name",
+      label = "Airbnb Name",
       value = "",
-      placeholder = "Name"
+      placeholder = "Search"
     ),
     selectInput(
       "property_type",
