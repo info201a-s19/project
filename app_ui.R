@@ -132,9 +132,9 @@ interactive_page_two <- tabPanel(
     For example, if there are 4 people looking
     for an Airbnb with relatively low price and they wonder how many
     of this type of Airbnb are available in the market
-    , they can refer to the Number_of_Accommodate VS Price plot.
+    , they can refer to the Accommodates VS Price plot.
     If the customers want an Airbnb with two bedrooms, they can refer to
-    the Number_of_Bedrooms VS Rating plot in order to get a sense of whether
+    the Bedrooms VS Rating plot in order to get a sense of whether
     there are plenty of good rated Airbnbs for them to choose from."),
 
   # This content uses a sidebar layout
