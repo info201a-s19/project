@@ -41,6 +41,7 @@ map_server <- function(input, output, session) {
     if (input$room_type != "All") {
       data <- filter(data, room_type == input$room_type)
     }
-    make_map(data)
+    map <- make_map(data)
+    map
   })
 }
