@@ -6,28 +6,6 @@ library("dplyr")
 # Load data frame
 df <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 
-# Make map
-make_map <- function(df) {
-  map <- leaflet(df) %>%
-    addProviderTiles("CartoDB.Positron") %>%
-    setView(lng = -122.3321, lat = 47.6062, zoom = 11) %>%
-    addCircles(
-      lat = ~latitude,
-      lng = ~ longitude,
-      popup = ~ paste(
-        paste0("<b><img src=", thumbnail_url, ">"),
-        name,
-        paste0("Rating: ", review_scores_rating),
-        paste0("<b><a href=", listing_url, ">Open in Airbnb</a></b>"),
-        sep = "<br/>"
-      ),
-      radius = 30,
-      fillOpacity = 0.5,
-      stroke = FALSE
-    )
-  return(map)
-}
-
 # Create a server function that takes in user's input and return output
 server <- function(input, output) {
   # Return output
@@ -35,6 +13,28 @@ server <- function(input, output) {
   
   # Output for first interactive page
   output$map <- renderLeaflet({
+    # Make map
+    make_map <- function(df) {
+      map <- leaflet(df) %>%
+        addProviderTiles("CartoDB.Positron") %>%
+        setView(lng = -122.3321, lat = 47.6062, zoom = 11) %>%
+        addCircles(
+          lat = ~latitude,
+          lng = ~ longitude,
+          popup = ~ paste(
+            paste0("<b><img src=", thumbnail_url, ">"),
+            name,
+            paste0("Rating: ", review_scores_rating),
+            paste0("<b><a href=", listing_url, ">Open in Airbnb</a></b>"),
+            sep = "<br/>"
+          ),
+          radius = 30,
+          fillOpacity = 0.5,
+          stroke = FALSE
+        )
+      return(map)
+    }
+    
     data <- airbnb %>%
       filter(grepl(input$name, name)) %>%
       filter(input$instant_book == (instant_bookable == "t"))
