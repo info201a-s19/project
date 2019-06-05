@@ -25,7 +25,7 @@ introduction <- tabPanel(
     tags$img("", src = "airbnb.png", width = 600, height = 360),
     tags$p("Based on this, people coming to Seattle would like to choose
            high-cost performance Airbnb house instead of the traditional
-           hotel.In this project, we will sort and analyze data collected
+           hotel. In this project, we will sort and analyze data collected
            by Airbnb in Seattle to help users explore popular neighborhoods
            based on their preference and find their best fit accommodations
            in Seattle."
@@ -37,14 +37,16 @@ introduction <- tabPanel(
            "Seattle Airbnb Open Data was collected as part of the Airbnb
            Inside initiative.", "It described the listing activity of homestays
            in Seattle, WA."),
-    tags$p("This Seattle dataset includes three parts, * Listings, including
-           full descriptions and average review score * Reviews, including
-           unique id for each reviewer and detailed comments * Calendar,
-           including listing id and the price and availability for that day"),
+    tags$p("This Seattle dataset includes three parts: Listings, including
+           full descriptions and average review score, Reviews, including
+           unique id for each reviewer and detailed comments, Calendar,
+           including listing id and the price and availability for that day."),
     tags$h4("General Questions"),
-    tags$p("where are the top 5 rated Airbnbs neigbourhood in Seattle?"),
-    tags$p("which room type in Airbnb is most popular one in Seattle area"),
-    tags$p("where are the area in seattle have more airbnb house than others")
+    tags$p("where are the most popular and most expensive
+           neigbourhood in Seattle?"),
+    tags$p("which room type in Airbnb is most popular in Seattle area?"),
+    tags$p("How does the price change as the number of bedroom or bathroom
+           increasing?")
     )
     )
 # Define the user interface content
@@ -212,7 +214,63 @@ interactive_page_three <- tabPanel(
     )
   )
 )
-
+summary <- tabPanel(
+  "Conclusion",
+  mainPanel(
+    tags$h1("Takeaways from project"),
+    tags$h3("1. Distribution of Airbnb House"),
+    p("From the first interactive map, we can get a good sense of Airbnb
+      distribution in Seattle. Apartment and House are two major Airbnb
+      property type. A lot of listings are clustered in downtown
+      Seattle. It is reasonable because downtown seattle cosist many fanous
+      restarount and tourist attractions such as", em("Pike Market"),
+      "It will be convenience for visitors to live in downtown seattle.
+      Capital hill and university district are also popular places to live
+      since one has many delicious food and one located near University so
+      parents or other visitors who wants to visit the University will
+      want to live there."),
+    tags$img("", src = "distribution.png", 
+             widisdth = 600, height = 360),
+    p("In the broader view, the host could buy the house near attractions of
+      the city and the visitors can also choose thoes palce to live while
+      traveling. Therefore, the land will be more expensive for thoes area"),
+    
+    h3("2. Price change Factors"),
+    p("The second plot shows how price changes according to the change in
+      numbers of Bedroom and numbers of people live in. According to the graph,
+      price increases most along with the increasing number of Bedrooms."),
+    tags$img("", src = "bedroom.png", 
+             widisdth = 600, height = 360),    
+    p("The price will not vary much when the numbers of lodger is less than
+      4 people or the numbers of bathroom is less than 2. There is a large
+      price shift when more than 8 people can live in and more than 4 bedrooms
+      , 3 bathrooms in the house."),
+    tags$img("", src = "accommodate.png", 
+             widisdth = 600, height = 360),
+    
+    p("To conclude, if the lodgers are less than 2 people, living in hotel might
+      be a better choice, if they have more than 3 people, Airbnb will provide
+      a high cost performance."),
+    
+    h3("3. Room type"),
+    p("Refer to our third plot, there are 2818 listing Airbnb houses in Seattle
+      in 2016. The plot shows the number of listing and average Price for
+      different neighbourhood. Overall, The average price for Airbnb in Seattle
+      is 128$. There are three types of room choice on Airbnb:",
+      strong("Entire home/apt, Private room, and Shared room"),
+      "there are 2541", em("Entire home/apt"), "1160", em("Private room"),
+      "and only 117", em("Shared room"), "listed on Airbnb."),
+    p("Within Seattle Area, Industrial District, Fairmount Park, Alki,
+      Pioneer Square, Magnolia, Portage Bay are the enighbourhood that has
+      high average price from 150$ to 300$ per night. They all have a common
+      feature, located near the seascape or far from the busy city area. This
+      is not hard to understand, the price will rise as the views from the
+      house gets better."),
+    p("From this we can conclude that the sea-view house will be more expensive
+      than others, it will be more suitable for people who are rich and have
+      cars and have longer vacations.")
+    )
+)
 # Pass the user interface page to a multi-page layout
 ui <- navbarPage(
   includeCSS("styles.css"),
@@ -224,6 +282,7 @@ ui <- navbarPage(
   # Second interactive page
   interactive_page_two,
   # Third interactive page
-  interactive_page_three
+  interactive_page_three,
   # Conclusion
+  summary
 )
