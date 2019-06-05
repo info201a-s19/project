@@ -135,7 +135,7 @@ interactive_page_two <- tabPanel(
     , they can refer to the Number_of_Accommodate VS Price plot.
     If the customers want an Airbnb with two bedrooms, they can refer to
     the Number_of_Bedrooms VS Rating plot in order to get a sense of whether
-    there are plenty of good rated Airbnbs for them to choose from"),
+    there are plenty of good rated Airbnbs for them to choose from."),
 
   # This content uses a sidebar layout
   sidebarLayout(
@@ -144,7 +144,7 @@ interactive_page_two <- tabPanel(
       # First input
       offers <- selectInput(
         "x_var",
-        label = "Offers",
+        label = "Variable One",
         choices = c(
           "Accommodates", "Bathrooms",
           "Bedrooms", "Beds"
@@ -153,7 +153,7 @@ interactive_page_two <- tabPanel(
       # Second input
       gains <- selectInput(
         "y_var",
-        label = "Gains",
+        label = "Variable Two",
         choices = c(
           "Price", "Reviews", "Rating",
           "ReviewsPerMonth"
