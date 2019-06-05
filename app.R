@@ -2,6 +2,7 @@
 library("shiny")
 library("ggplot2")
 library("dplyr")
+library("leaflet")
 
 # Load data
 airbnb <- read.csv("data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
