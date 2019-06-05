@@ -32,7 +32,7 @@ introduction <- tabPanel(
     tags$img(src = "airbnb1.jpg", width = 600, height = 360),
     tags$p("The data was downloaded from ",
            a("Seattle Airbnb Open Data",
-             href = "https://www.kaggle.com/airbnb/seattle#listings.csv"), 
+             href = "https://www.kaggle.com/airbnb/seattle#listings.csv"),
            "Seattle Airbnb Open Data was collected as part of the Airbnb
            Inside initiative.", "It described the listing activity of homestays
            in Seattle, WA."),
@@ -66,19 +66,19 @@ room_types <- list("room_types" = c("All", room_types))
 
 interactive_page_one <- tabPanel(
   title = "Airbnb Map in Seattle",
-  
+
   titlePanel("Airbnb Map in Seattle"),
-  
-  p("In this page you can get a good sense of the geographical distributon 
-    of the Airbnb listings in Seattle. A lot of listings are clustered 
-    in downtown seattle. You may find a lot of choice over there. 
-    You can click on the listing if you want to find more information. 
-    The popup window will provides you a thrumbnail image of the listing along 
-    with other useful information. If you want to find out more about the 
-    listing, you can click on the link which will bring you to Airbnb!   
-    You could also search for a specfic room by its name, filter by its  
+
+  p("In this page you can get a good sense of the geographical distributon
+    of the Airbnb listings in Seattle. A lot of listings are clustered
+    in downtown seattle. You may find a lot of choice over there.
+    You can click on the listing if you want to find more information.
+    The popup window will provides you a thrumbnail image of the listing along
+    with other useful information. If you want to find out more about the
+    listing, you can click on the link which will bring you to Airbnb!
+    You could also search for a specfic room by its name, filter by its
     property type or room type, and weather its instant bookable."),
-  
+
   sidebarPanel(
     titlePanel("Filter"),
     textInput(
@@ -114,17 +114,17 @@ interactive_page_one <- tabPanel(
 interactive_page_two <- tabPanel(
   "Useful Correlations Between the Offers and the Gains",
   titlePanel("Useful Correlations Between the Offers and the Gains"),
-  
+
   # Description
   p("The purpose of this page is to give people some general ideas about
     the relationship between what they offer and what they can
-    receive from the Airbnbs. For example, if there are 4 people looking 
+    receive from the Airbnbs. For example, if there are 4 people looking
     for an Airbnb and the customers wonder how much they should be charged
-    , they can refer to the Number_of_Accommodate VS Price plot. 
-    If the customers want an Airbnb with two bedrooms, they can refer to 
-    the Number_of_Bedrooms VS Rating plot in order to get a sense of whether 
+    , they can refer to the Number_of_Accommodate VS Price plot.
+    If the customers want an Airbnb with two bedrooms, they can refer to
+    the Number_of_Bedrooms VS Rating plot in order to get a sense of whether
     there are plenty of good rated Airbnbs for them to choose from"),
-  
+
   # This content uses a sidebar layout
   sidebarLayout(
     # Create the widgets
@@ -150,7 +150,7 @@ interactive_page_two <- tabPanel(
         min = 1,
         max = 10,
         value = 3
-      )  
+      ) 
     ),
     # Create the plot
     mainPanel(
@@ -159,18 +159,70 @@ interactive_page_two <- tabPanel(
   )
 )
 
+# Third page
+neighbourhood_list <- airbnb %>%
+  select(neighbourhood) %>%
+  unique() %>%
+  filter(nchar(neighbourhood) > 0) %>%
+  pull()
+# Add `All = ""` at front
+neighbourhood_list <- list("neighbourhood_list" = c("All", neighbourhood_list))
+
+summary_cards <- div(
+  id = "card-container",
+  div(
+    class = "card",
+    h4(textOutput("number")),
+    p("Number of Listing", class = "grey-font")
+  ),
+  div(
+    class = "card",
+    h4(textOutput("price")),
+    p("Average Price", class = "grey-font")
+  ),
+  div(
+    class = "card",
+    h4(textOutput("rating")),
+    p("Average Rating", class = "grey-font")
+  )
+)
+
+interactive_page_three <- tabPanel(
+  "Neighbourhood Info",
+  titlePanel("Neighbourhood Info"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        "neighbourhood",
+        label = "neighbourhood",
+        choices = neighbourhood_list,
+        selected = "All"
+      )
+    ),
+    mainPanel(
+      h3("Key Index"),
+      summary_cards,
+      plotOutput("barchart"),
+      p("You can find out the summary information of the neighbourhood
+        you are planning to stay. The pricing, rating, and avaibility
+        are the infomation that most visitors care about. You can know
+        more the communities in Seattle as you navigate different
+        neigbourhoods.")
+    )
+  )
+)
+
 # Pass the user interface page to a multi-page layout
 ui <- navbarPage(
-  "Seattle Airbnbs Project",
+  includeCSS("styles.css"),
+  id = "Seattle Airbnbs Project",
   # Introduction
   introduction,
   # First interactive page
   interactive_page_one,
   # Second interactive page
-  interactive_page_two
-  
+  interactive_page_two,
   # Third interactive page
-  
+  interactive_page_three
   # Conclusion
-  
 )

@@ -10,3 +10,28 @@ th, td {
   padding: 15px;
   text-align: center !important;
 }
+
+h4 {
+	color: #4286f4;
+}
+
+p {
+	margin: 20px;
+}
+
+.card {
+  width: 30%;
+  padding: 10px;
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+}
+
+.grey-font {
+  color: grey;
+}
+
+#card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+	margin-bottom: 30px;
+}
