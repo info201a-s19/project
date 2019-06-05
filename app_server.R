@@ -44,7 +44,8 @@ server <- function(input, output) {
     if (input$room_type != "All") {
       data <- filter(data, room_type == input$room_type)
     }
-    make_map(data)
+    map <- make_map(data)
+    map
   })
   # Output for second interactive page
   output$useful_correlations <- renderPlot({
