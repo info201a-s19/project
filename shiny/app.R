@@ -1,5 +1,4 @@
 library(shiny)
-airbnb <- read.csv("../data/seattle-airbnb/listings.csv", stringsAsFactors = FALSE)
 source("map_server.R")
 source("map_ui.R")
 

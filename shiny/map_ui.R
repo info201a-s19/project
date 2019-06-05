@@ -6,14 +6,14 @@ property_types <- airbnb %>%
   filter(nchar(property_type) > 0) %>%
   pull()
 # Add `All = ""` at front
-property_types = list("property_types" = c("All", property_types))
+property_types <- list("property_types" = c("All", property_types))
 
 room_types <- airbnb %>%
   select(room_type) %>%
   unique() %>%
   filter(nchar(room_type) > 0)
 # Add `all` at front
-room_types = list("room_types" = c("All", room_types))
+room_types <- list("room_types" = c("All", room_types))
 
 filter_sidebar <- sidebarPanel(
   titlePanel("Filter"),
@@ -42,12 +42,10 @@ filter_sidebar <- sidebarPanel(
   )
 )
 
-map_panel <- mainPanel(
-  leafletOutput("map")
-)
-
 map_panel <- tabPanel(
   title = "Airbnb Map in Seattle",
   filter_sidebar,
-  map_panel
+  mainPanel(
+    leafletOutput("map")
+  )
 )
