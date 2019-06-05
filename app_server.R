@@ -7,8 +7,6 @@ library("plotly")
 # Create a server function that takes in user's input and return output
 server <- function(input, output) {
   # Return output
-  # Output for introduction
-
   # Output for first interactive page
   output$map <- renderLeaflet({
     # Make map
@@ -18,7 +16,7 @@ server <- function(input, output) {
         setView(lng = -122.3321, lat = 47.6062, zoom = 11) %>%
         addCircles(
           lat = ~latitude,
-          lng = ~ longitude,
+          lng = ~longitude,
           popup = ~ paste(
             paste0("<b><img src=", thumbnail_url, ">"),
             name,
@@ -53,14 +51,15 @@ server <- function(input, output) {
 
     # Reorganize the data
     data_needed <- airbnb %>%
-      select(accommodates, bathrooms, bedrooms, beds, price,
-             number_of_reviews, review_scores_rating, reviews_per_month)
+      select(
+        accommodates, bathrooms, bedrooms, beds, price,
+        number_of_reviews, review_scores_rating, reviews_per_month
+      )
 
     colnames(data_needed) <- c(
-      "Number_of_Accommodates", "Number_of_Bathrooms",
-      "Number_of_Bedrooms", "Number_of_Beds",
-      "Price", "Number_of_Reviews", "Rating",
-      "Reviews_per_Month"
+      "Accommodates", "Bathrooms",
+      "Bedrooms", "Beds", "Price", "Reviews", "Rating",
+      "ReviewsPerMonth"
     )
 
     data_needed <- data_needed %>%
@@ -136,5 +135,4 @@ server <- function(input, output) {
       pull(average_rating)
     return(round(average_rating))
   })
-  # Output for conclusion
 }
