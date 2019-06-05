@@ -3,7 +3,7 @@ library(dplyr)
 library(ggplot2)
 library(leaflet)
 library(stringr)
-source("app.R")
+
 
 # Plot all the listing on a map and put some useful information 
 # in the popup window 
