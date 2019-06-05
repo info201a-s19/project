@@ -28,17 +28,32 @@ filter_sidebar <- sidebarPanel(
   )
 )
 
+card_container <- div(
+  id = "card-container",
+  div(
+    class = "card",
+    textOutput("number"),
+    p(id = "grey-font", "Total Listing")
+  ),
+  div(
+    class = "card",
+    textOutput("price"),
+    p(id = "grey-font", "Average price")
+  ),
+  div(
+    class = "card",
+    textOutput("number"),
+    p(id = "grey-font", "Average Rating")
+  )
+)
+
 community_panel <- tabPanel(
   includeCSS("styles.css"),
   title = "Community Information",
   filter_sidebar,
   mainPanel(
     h3("Community Summary"),
-    div(
-      class = "card",
-      textOutput("number"),
-      p("Total Listing")
-    ),
+    card_container,
     plotOutput("bar-Chart")
   )
 )

@@ -30,6 +30,7 @@ make_map <- function(df) {
 }
 
 map_server <- function(input, output, session) {
+  # Interactive page 1
   output$map <- renderLeaflet({
     data <- airbnb %>%
       filter(grepl(input$name, name)) %>%
