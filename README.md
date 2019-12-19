@@ -1,5 +1,6 @@
 # [Airbnb Data Analysis Project](https://jinghuawang.shinyapps.io/project-JinghuaWang/)
 <img src="www/airbnb.png" width=50%>
+
 ## Project Description
 <img src="www/seattletravel.jpg" width=80%> <br>
 This project analyzes the Seattle Airbnb data which is part of the [Seattle Airbnb Open Data]( https://www.kaggle.com/airbnb/seattle#listings.csv). Seattle Airbnb Open Data was collected as part of the Airbnb Inside initiative. It described the listing activity of homestays in Seattle, WA.
