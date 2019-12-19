@@ -30,4 +30,5 @@ Since the shiny framework doesn't contain some components(e.g. index cards), I c
 </figure>
 <br>
 <br>
+
 ### Lastly, don't forget to check out the interactive [project](https://jinghuawang.shinyapps.io/project-JinghuaWang/) which is hosted on [shinyapps.io](https://www.shinyapps.io/)
